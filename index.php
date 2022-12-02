@@ -15,8 +15,8 @@ function processMessage($message) {
 		//envia a mensagem ao usuário
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá, '. $message['from']['first_name'].' '. $message['from']['last_name'].
 		'! Sou seu Bot para fazer sua solicitação de delivery de peças 
-		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'reply_markup' => array(
-        'keyboard' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
+		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'InlineKeyboardMarkup' => array(
+        'InlineKeyboardButton' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
         'one_time_keyboard' => true)));
     } else if ($text === "Fazer Pedido") {
 	    
