@@ -21,7 +21,7 @@ function processMessage($message) {
     } else if ($text === "Fazer Pedido") {
         
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Escolha entre as seguintes peças'
-.'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8550,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
+.'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8555,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SOMENTE O NOME DO PRODUTO EX: /PLACA'));
        
  
