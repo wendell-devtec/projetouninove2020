@@ -1,11 +1,7 @@
 <?php
 
-require('parser.php');
-
 define('BOT_TOKEN', '5952104792:AAGaomMNP71YY2HpCrOYMLOcWoz3vjktoIY');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-
-include 'Cep.php';
 
 function processMessage($message) {
   // processa a mensagem recebida
