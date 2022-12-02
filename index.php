@@ -19,6 +19,7 @@ function processMessage($message) {
         'keyboard' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
         'one_time_keyboard' => true)));
     } else if ($text === "Fazer Pedido") {
+	    
         
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Escolha entre as seguintes peças'
 .'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8555,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
@@ -58,7 +59,9 @@ else       if ( $text == '/FONTE' )
 		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
 
 }else if($text === "/entrega") {
-       	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: ')); 
+       	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
+	$numero_recebido = $message[‘text’];
+          
         
     }else if($text === $text) {
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ''.$message['from']['first_name'].'   QUAL A FORMA DE PAGAMENTO? DIGITE 1 PARA DÉBITO , 2 PARA CRÉDITO , 3 PARA DINHEIRO'));
@@ -75,6 +78,8 @@ else       if ( $text == '/FONTE' )
         }else if($text === "3"){
             sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DINHEIRO')); 
         }
+	  
+	   sendMessage(“sendMessage”, array(‘chat_id’ => $chat_id, “text” => gerar_texto($numero_recebido)));
         
         else if ($text === "Formas de Pagamento") {
         
