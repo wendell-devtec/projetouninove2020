@@ -15,9 +15,18 @@ function processMessage($message) {
 		//envia a mensagem ao usuário
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá, '. $message['from']['first_name'].' '. $message['from']['last_name'].
 		'! Sou seu Bot para fazer sua solicitação de delivery de peças 
-		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'InlineKeyboardMarkup' => array(
-        'InlineKeyboardButton' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
-        'one_time_keyboard' => true)));
+		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 
+	    
+	    'reply_markup' => array('inline_keyboard' => array(
+                                                     //linha 1
+                                                     array(
+                                                         array('text'=>'Fazer Pedido'), //botão 1
+                                                         array('text'=>'Formas de Pagamento')//botão 2
+                                                      ),
+                                                     
+
+                                        )
+                                )));
     } else if ($text === "Fazer Pedido") {
 	    
         
