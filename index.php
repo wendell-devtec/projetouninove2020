@@ -1,7 +1,11 @@
 <?php
 
+require('parser.php');
+
 define('BOT_TOKEN', '5952104792:AAGaomMNP71YY2HpCrOYMLOcWoz3vjktoIY');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
+
+include 'Cep.php';
 
 function processMessage($message) {
   // processa a mensagem recebida
@@ -11,18 +15,17 @@ function processMessage($message) {
     
     $text = $message['text'];//texto recebido na mensagem
 
-      if (strpos($text, "/start") === 0) {
+    if (strpos($text, "/start") === 0) {
 		//envia a mensagem ao usuário
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá, '. $message['from']['first_name'].' '. $message['from']['last_name'].
 		'! Sou seu Bot para fazer sua solicitação de delivery de peças 
 		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'reply_markup' => array(
         'keyboard' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
         'one_time_keyboard' => true)));
-     else if ($text === "Fazer Pedido") {
-	    
+    } else if ($text === "Fazer Pedido") {
         
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Escolha entre as seguintes peças'
-.'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8555,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Escolha entre as seguintes peças'.<br>
+.'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8500,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SOMENTE O NOME DO PRODUTO EX: /PLACA'));
        
  
@@ -59,25 +62,21 @@ else       if ( $text == '/FONTE' )
 		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
 
 }else if($text === "/entrega") {
-       	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
-	
-          
-       
-    }else if($text === $text) {
-        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ''.$message['from']['first_name'].'   QUAL A FORMA DE PAGAMENTO? DIGITE 1 PARA DÉBITO , 2 PARA CRÉDITO , 3 PARA DINHEIRO'));
-
-    }else if($text === "1"){
-            sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DÉBITO SELECIONADO'));
-
-        }else if($text === "2"){
-            sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'CRÉDITO SELECIONADO')); 
-        }else if($text === "3"){
-            sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DINHEIRO')); 
-        }
-	  
-	 
+       	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: ')); 
         
-        else if ($text === "Formas de Pagamento") {
+        if($text === $text) {
+        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ''.$message['from']['first_name'].'   QUAL A FORMA DE PAGAMENTO? DIGITE 1 PARA DÉBITO , 2 PARA CRÉDITO , 3 PARA DINHEIRO'));
+        } else if($text === "1"){
+          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DÉBITO SELECIONADO'));
+
+      }else if($text === "2"){
+          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'CRÉDITO SELECIONADO')); 
+      }else if($text === "3"){
+          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DINHEIRO')); 
+      }
+        
+        
+    }else if ($text === "Formas de Pagamento") {
         
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => '1-DÉBITO , 2-CRÉDITO , 3- DINHEIRO -> TODAS AS FORMAS SÃO PAGAS NA ENTREGA'));
       
