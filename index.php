@@ -17,15 +17,11 @@ function processMessage($message) {
 		'! Sou seu Bot para fazer sua solicitação de delivery de peças 
 		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 
 	    
-	    'reply_markup' => array('inline_keyboard' => array(
-                                                     //linha 1
-                                                     array(
-                                                         array('text'=>'Fazer Pedido'), //botão 1
-                                                         array('text'=>'Formas de Pagamento')//botão 2
-                                                      ),
-                                                     
+	    'reply_markup' => 
+                                 By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'reply_markup' => array(
+        'keyboard' => array(array('Fazer Pedido'),array('Formas de Pagamento'))                    
 
-                                        )
+                
                                 )));
     } else if ($text === "Fazer Pedido") {
 	    
