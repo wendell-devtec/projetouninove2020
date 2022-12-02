@@ -60,16 +60,12 @@ else       if ( $text == '/FONTE' )
 
 }else if($text === "/entrega") {
        	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
-	$numero_recebido = $message[‘text’];
+	
           
-        
+       
     }else if($text === $text) {
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ''.$message['from']['first_name'].'   QUAL A FORMA DE PAGAMENTO? DIGITE 1 PARA DÉBITO , 2 PARA CRÉDITO , 3 PARA DINHEIRO'));
-        
-        
 
-        
-        
     }else if($text === "1"){
             sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DÉBITO SELECIONADO'));
 
@@ -79,7 +75,7 @@ else       if ( $text == '/FONTE' )
             sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DINHEIRO')); 
         }
 	  
-	   sendMessage(“sendMessage”, array(‘chat_id’ => $chat_id, “text” => gerar_texto($numero_recebido)));
+	 
         
         else if ($text === "Formas de Pagamento") {
         
