@@ -1,11 +1,7 @@
 <?php
 
-require('parser.php');
-
 define('BOT_TOKEN', '5952104792:AAGaomMNP71YY2HpCrOYMLOcWoz3vjktoIY');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-
-include 'Cep.php';
 
 function processMessage($message) {
   // processa a mensagem recebida
@@ -17,72 +13,78 @@ function processMessage($message) {
 
     if (strpos($text, "/start") === 0) {
 		//envia a mensagem ao usuário
-      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá, '. $message['from']['first_name'].' '. $message['from']['last_name'].
-		'! Sou seu Bot para fazer sua solicitação de delivery de peças 
-		By GRUPO DE PROJETO CIÊNCIA DA COMPUTAÇÃO UNINOVE TURMA 31 ', 'reply_markup' => array(
-        'keyboard' => array(array('Fazer Pedido'),array('Formas de Pagamento')),
+      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá,  '. $message['from']['first_name'].' '. $message['from']['last_name'].
+      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido \n\n *LEMBRE SE TIVER DUVIDA DIGITE /help OU NO BOTÃO AJUDA*", 'reply_markup' => array(
+        'keyboard' => array(array('Fazer Pedido'),array('Ajuda')),
         'one_time_keyboard' => true)));
+        
     } else if ($text === "Fazer Pedido") {
         
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Escolha entre as seguintes peças'.
-.'1-PLACA MÃE = R$500,00'.'2-SSD 240 = R$280,00'.'3-PROCESSADOR INTEL = R$8500,00'.'4-GABINETE GAMER = R$1970,00'.'5-FONTE 500W REAL = R$200,00'));
-        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SOMENTE O NOME DO PRODUTO EX: /PLACA'));
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "ESCOLHA UMA DAS SEGUINTES PEÇAS \n\n 1-PLACA MÃE = R$500,00 \n\n 2-SSD 240Gb = R$280,00 \n\n 3-PROCESSADOR INTEL = R$8500,00 \n\n 4-GABINETE GAMER = R$1970,00 \n\n 5-FONTE 500W REAL = R$200,00"));
        
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SOMENTE O NÚMERO DO PRODUTO EX: 1'));
+     
  
-       
-    } else       if ( $text == '/PLACA' ) 
-{
-	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'PLACA MÃE SOLICITADA'));
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
+    }else if ( $text === "1" ||  $text === "2" ||  $text === "3" || $text === "4" ||  $text === "5"  ){
+        
+        
+        switch ($text) {
+   case "1":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Digite seu endereço completo:"));
 
-}else       if ( $text == '/SSD' ) 
-{
-	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SSD 240 SOLICITADO'));
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
+       break;
+   case "2":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "SSD 240Gb \n Digite seu endereço completo:"));
+       break;
+   case "3":
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PROCESSADOR INTEL \n Digite seu endereço completo:"));
 
+       break;
+        case "4":
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "GABINETE GAMER \n Digite seu endereço completo:"));
+       break;
+        case "5":
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "FONTE 500W REAL\n Digite seu endereço completo:"));
+       break;
+       default:
+        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'OPÇÃO SELECIONADA ERRADA'));
+
+         break;
+         
+   
+
+    
 }
 
-else       if ( $text == '/PROCESSADOR' ) 
-{
-	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'PROCESSADOR SOLICITADO'));
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
 
-}
 
-else       if ( $text == '/GABINETE' ) 
-{
-	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'GABINETE SOLICITADO'));
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
 
-}
-
-else       if ( $text == '/FONTE' ) 
-{
-	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'FONTE SOLICITADA'));
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE /entrega para adicionar seu endereço'));
-
-}else if($text === "/entrega") {
-       	sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: ')); 
+            
         
-        if($text === $text) {
-        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ''.$message['from']['first_name'].'   QUAL A FORMA DE PAGAMENTO? DIGITE 1 PARA DÉBITO , 2 PARA CRÉDITO , 3 PARA DINHEIRO'));
-        } else if($text === "1"){
-          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DÉBITO SELECIONADO'));
+    }else if ($text === "Ajuda" || $text === "/help") {
+        
+sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Selecione uma das opções para Tirar sua Dúvida', 
+		'reply_markup' => array('inline_keyboard' => array(
+                                                     //linha 1
+                                                     array(
+                                                         array('text'=>'FORMA DE PAGAMENTO',"text" => "Temos 1-DÉBITO \n2-CRÉDITO \n 3-DINHEIRO \n 4-PIX"), //botão 1
+                                                         array('text'=>'ENTREGA',"text" => "Nossa Entrega é realizada em seu endereço em até 5 horas , por um dos nossos motoboys parceiros")//botão 2
+                                                      ),
+                                                      //linha 2
+                                                     array(
+                                                         array('text'=>'SAC',"text" => "Para registrar uma reclamação use os seguintes canais: \n\n -EMAIL: <b>suporte55@bot.com.br</b> \n -Telefone:<b>0800-000-000</br> "), //botão 3
+                                                        
+                                                      )
 
-      }else if($text === "2"){
-          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'CRÉDITO SELECIONADO')); 
-      }else if($text === "3"){
-          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DINHEIRO')); 
-      }
+                                        )
+                                )));
         
         
-    }else if ($text === "Formas de Pagamento") {
-        
-      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => '1-DÉBITO , 2-CRÉDITO , 3- DINHEIRO -> TODAS AS FORMAS SÃO PAGAS NA ENTREGA'));
-      
     }  else {
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe esse comando eu não entendo , poderia escolher um que eu saiba por favor:('));
     }
+  
+      
   } else if (isset($message['photo'])) { //checa se existe imagem na mensagem
 	  $photo = $message['photo'][count($message['photo'])-1]; //obtém a imagem no tamanho original
 	  //envia a imagem recebida com a legenda
