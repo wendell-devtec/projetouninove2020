@@ -61,7 +61,7 @@ function processMessage($message) {
     }else if($text === "/entrega" ){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
        
-   }else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
+   }else  if($text != "/entrega" && $text === $text){
            
  
           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
@@ -70,15 +70,6 @@ function processMessage($message) {
 
     
        
-       
-   }else if ($text === "Ajuda" || $text === "/help") {
-        
- sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá,  '. $message['from']['first_name'].' '. $message['from']['last_name'].
-      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido \n\n *LEMBRE SE TIVER DUVIDA DIGITE /help OU NO BOTÃO AJUDA*", 'reply_markup' => array(
-        'keyboard' => array(array('Fazer Pedido'),array('Ajuda')),
-        'one_time_keyboard' => true)));
-        
-        
     }  else {
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe esse comando eu não entendo , poderia escolher um que eu saiba por favor:('));
     }
