@@ -14,8 +14,8 @@ function processMessage($message) {
     if (strpos($text, "/start") === 0) {
 		//envia a mensagem ao usuário
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá,  '. $message['from']['first_name'].' '. $message['from']['last_name'].
-      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido \n\n *LEMBRE SE TIVER DUVIDA DIGITE /help OU NO BOTÃO AJUDA*", 'reply_markup' => array(
-        'keyboard' => array(array('Fazer Pedido'),array('Ajuda')),
+      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido", 'reply_markup' => array(
+        'keyboard' => array(array('Fazer Pedido')),
         'one_time_keyboard' => true)));
         
     } else if ($text === "Fazer Pedido") {
