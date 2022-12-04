@@ -30,9 +30,10 @@ function processMessage($message) {
         
         switch ($text) {
    case "1":
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Digite seu endereço completo:"));
-
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Digite o comando /entrega"));
+     $pc = "PLACA MÃE";
        break;
+        
    case "2":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "SSD 240Gb \n Digite seu endereço completo:"));
        break;
@@ -52,16 +53,24 @@ function processMessage($message) {
          break;
          
    
-
-    
+  
 }
-
-
-
 
             
         
-    }else if ($text === "Ajuda" || $text === "/help") {
+    }else if($text === "/entrega" ){
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
+       
+   }else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
+           
+ 
+          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
+
+
+    
+       
+       
+   }else if ($text === "Ajuda" || $text === "/help") {
         
 sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Selecione uma das opções para Tirar sua Dúvida', 
 		'reply_markup' => array('inline_keyboard' => array(
@@ -84,6 +93,7 @@ sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Selecione uma
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe esse comando eu não entendo , poderia escolher um que eu saiba por favor:('));
     }
   
+
       
   } else if (isset($message['photo'])) { //checa se existe imagem na mensagem
 	  $photo = $message['photo'][count($message['photo'])-1]; //obtém a imagem no tamanho original
@@ -93,6 +103,7 @@ sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Selecione uma
     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe, mas só compreendo mensagens em texto'));
   }
 }
+
 
 function sendMessage($method, $parameters) {
   $options = array(
