@@ -14,8 +14,8 @@ function processMessage($message) {
     if (strpos($text, "/start") === 0) {
 		//envia a mensagem ao usuário
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Olá,  '. $message['from']['first_name'].' '. $message['from']['last_name'].
-      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido", 'reply_markup' => array(
-        'keyboard' => array(array('Fazer Pedido')),
+      " Tudo bem ?!\n\n Sou seu Bot De Compra de Peça de Informática \n Para começar Clique em Fazer Pedido \n\n *LEMBRE SE TIVER DUVIDA DIGITE /help OU NO BOTÃO AJUDA*", 'reply_markup' => array(
+        'keyboard' => array(array('Fazer Pedido'),array('Ajuda')),
         'one_time_keyboard' => true)));
         
     } else if ($text === "Fazer Pedido") {
@@ -61,15 +61,34 @@ function processMessage($message) {
     }else if($text === "/entrega" ){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
        
-   }else  if($text != "/entrega" && $text === $text){
+   }else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
            
  
           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
-	    die();
 
 
     
        
+       
+   }else if ($text === "Ajuda" || $text === "/help") {
+        
+sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Selecione uma das opções para Tirar sua Dúvida', 
+		'reply_markup' => array('inline_keyboard' => array(
+                                                     //linha 1
+                                                     array(
+                                                         array('text'=>'FORMA DE PAGAMENTO',"text" => "Temos 1-DÉBITO \n2-CRÉDITO \n 3-DINHEIRO \n 4-PIX"), //botão 1
+                                                         array('text'=>'ENTREGA',"text" => "Nossa Entrega é realizada em seu endereço em até 5 horas , por um dos nossos motoboys parceiros")//botão 2
+                                                      ),
+                                                      //linha 2
+                                                     array(
+                                                         array('text'=>'SAC',"text" => "Para registrar uma reclamação use os seguintes canais: \n\n -EMAIL: <b>suporte55@bot.com.br</b> \n -Telefone:<b>0800-000-000</br> "), //botão 3
+                                                        
+                                                      )
+
+                                        )
+                                )));
+        
+        
     }  else {
       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe esse comando eu não entendo , poderia escolher um que eu saiba por favor:('));
     }
