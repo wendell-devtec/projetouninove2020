@@ -53,14 +53,24 @@ function processMessage($message) {
            
   
 }
-        }else if ( $text === "PIX"){
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n Digite seu endereço completo:"));
-}
+	    
+ }else if ( $text === "PIX" ||  $text === "CREDITO"){
         
-    }else if($text === "CREDITO"){
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue no endereço informado'));
+        
+        switch ($text) {
+   case "PIX":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n\n Digite o endreço de entrega:"));
+       break;
+        
+   case "CREDITO":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO \n\n Digite o endreço de entrega:"));
+       break;
+
+    }else if ( $text===$text){
+		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ")O produto sera entregue no endereço informado"));
+
        
-   }else sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
+   }else if sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
 
 
 
