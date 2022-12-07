@@ -67,13 +67,13 @@ function processMessage($message) {
 
 }
         
-    }else if($text === "/entrega" ){
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
+    //}else if($text === "/entrega" ){
+       //sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
        
-   }else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
+   //}else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
            
  
-          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
+          //sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
 
 
     
