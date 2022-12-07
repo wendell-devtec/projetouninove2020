@@ -67,8 +67,8 @@ function processMessage($message) {
 
 }
         
-    //}else if($text === "/entrega" ){
-       //sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
+    }else if($text === $text ){
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue em: $text'));
        
    //}else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
            
