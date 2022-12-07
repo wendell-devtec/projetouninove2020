@@ -60,9 +60,7 @@ function processMessage($message) {
     }else if($text === "CREDITO"){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue no endereço informado'));
        
-   }else  if($text = $text ){
-           
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
+   }else sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
 
 
 
