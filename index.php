@@ -53,15 +53,15 @@ function processMessage($message) {
            
   
 }
-        }else if ( $text === "1" ||  $text === "2"){
+        }else if ( $text === "PIX" ||  $text === "CREDITO"){
         
         
        switch ($text) {
-   case "1":
+   case "CREDITO":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n Digite seu endereço completo:"));
        break;
         
-   case "2":
+   case "PIX":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO Digite seu endereço completo:\n "));
        break;
 
