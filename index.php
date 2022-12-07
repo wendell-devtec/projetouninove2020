@@ -57,31 +57,22 @@ function processMessage($message) {
  }else if ( $text === "PIX" ||  $text === "CREDITO"){
         
         
-        switch ($text) {
+       switch ($text) {
    case "PIX":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n\n Digite o endreço de entrega:"));
        break;
-        
+
    case "CREDITO":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO \n\n Digite o endreço de entrega:"));
        break;
 
     }else if ( $text===$text){
-		sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ")O produto sera entregue no endereço informado"));
+        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => ")O produto sera entregue no endereço informado"));
 
-       
+
    }else if sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
 
 
-
-      
-  } else if (isset($message['photo'])) { //checa se existe imagem na mensagem
-	  $photo = $message['photo'][count($message['photo'])-1]; //obtém a imagem no tamanho original
-	  //envia a imagem recebida com a legenda
-	  sendMessage("sendPhoto", array('chat_id' => $chat_id, "photo" => $photo["file_id"], "caption" => "A legenda da foto foi: ".$$message["caption"]));
-  } else {
-    sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe, mas só compreendo mensagens em texto'));
-  }
 }
 
 
