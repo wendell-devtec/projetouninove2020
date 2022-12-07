@@ -25,13 +25,12 @@ function processMessage($message) {
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SOMENTE O NÚMERO DO PRODUTO EX: 1'));
      
  
-    }else if ( $text === "1" ||  $text === "2" ||  $text === "3" || $text === "4" ||  $text === "5"  ){
+    }else if ( $text === "1" ||  $text === "2" ||  $text === "3" || $text === "4" ||  $text === "5" ){
         
         
         switch ($text) {
    case "1":
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Digite o comando /entrega"));
-     $pc = "PLACA MÃE";
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Escolha uma forma de pagamento!\n\n Digite 1 para credito ou 2 para pix"));
        break;
         
    case "2":
@@ -51,12 +50,22 @@ function processMessage($message) {
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'OPÇÃO SELECIONADA ERRADA'));
 
          break;
-         
-   
+           
   
 }
+        }else if ( $text === "1" ||  $text === "2"){
+        
+        
+       switch ($text) {
+   case "1":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n Digite seu endereço completo:"));
+       break;
+        
+   case "2":
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO Digite seu endereço completo:\n "));
+       break;
 
-            
+}
         
     }else if($text === "/entrega" ){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'DIGITE SEU ENDEREÇO COMPLETO: '));
@@ -107,5 +116,5 @@ $update = json_decode($update_response, true);
 if (isset($update["message"])) {
   processMessage($update["message"]);
 }
-
+				      
 ?>
