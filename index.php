@@ -53,36 +53,18 @@ function processMessage($message) {
            
   
 }
-        }else if ( $text === "PIX" ||  $text === "CREDITO"){
-        
-        
-       switch ($text) {
-   case "CREDITO":
+        }else if ( $text === "PIX"){
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n Digite seu endereço completo:"));
-       break;
-        
-   case "PIX":
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO Digite seu endereço completo:\n "));
-       break;
-
 }
         
-    }else if($text = $text){
+    }else if($text === "CREDITO"){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue no endereço informado'));
        
-   }else  if($text !="PIX"  && $text !="CREDITO" ){
+   }else  if($text = $text ){
            
- 
-          sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "Desculpe não entendi!Peço que Siga o exemplo anterior"));
 
 
-    
-       
-       
-   }else {
-      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Desculpe esse comando eu não entendo , poderia escolher um que eu saiba por favor:('));
-    }
-  
 
       
   } else if (isset($message['photo'])) { //checa se existe imagem na mensagem
