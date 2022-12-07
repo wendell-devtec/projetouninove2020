@@ -57,11 +57,11 @@ function processMessage($message) {
         
         
        switch ($text) {
-   case "CREDITO":
+   case "/CREDITO":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "CREDITO SELECIONADO \n Digite seu endereço completo:"));
        break;
         
-   case "PIX":
+   case "/PIX":
      sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PIX SELECIONADO Digite seu endereço completo:\n "));
        break;
 
@@ -70,7 +70,7 @@ function processMessage($message) {
     }else if($text === $text ){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue em: ' . $text));
        
-   //}else  if($text != "/entrega" && $text === $text && $text != "/sim" && $text != "/nao" ){
+   }else  if($text !=  && $text === $text && $text != "/sim" && $text != "/nao" ){
            
  
           //sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
