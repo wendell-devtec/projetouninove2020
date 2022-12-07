@@ -70,7 +70,7 @@ function processMessage($message) {
     }else if($text === $text ){
        sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue em: ' . $text));
        
-   }else  if($text !=  && $text === $text && $text != "/sim" && $text != "/nao" ){
+   }//else  if($text !=  && $text === $text && $text != "/sim" && $text != "/nao" ){
            
  
           //sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'SEU PEDIDO SERÁ ENTREGUE EM: ' . $text));
