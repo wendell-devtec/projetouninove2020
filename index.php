@@ -67,8 +67,8 @@ function processMessage($message) {
 
 }
         
-    }else if($text === $text ){
-       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue em: ' . $text));
+    }else if($text = $text){
+       sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'Seu pedido será entregue no endereço informado'));
        
    }else  if($text !="PIX"  && $text !="CREDITO" ){
            
