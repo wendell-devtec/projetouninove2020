@@ -30,21 +30,21 @@ function processMessage($message) {
         
         switch ($text) {
    case "1":
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Escolha uma forma de pagamento!\n\n Digite 1 para credito ou 2 para pix"));
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PLACA MÃE SELECIONADA \n Escolha uma forma de pagamento!\n\n Digite PIX ou CREDITO como forma de pagamento:"));
        break;
         
    case "2":
-     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "SSD 240Gb \n Digite seu endereço completo:"));
+     sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "SSD 240Gb \n Digite PIX ou CREDITO como forma de pagamento:"));
        break;
    case "3":
-           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PROCESSADOR INTEL \n Digite seu endereço completo:"));
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "PROCESSADOR INTEL \n Digite PIX ou CREDITO como forma de pagamento:"));
 
        break;
         case "4":
-           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "GABINETE GAMER \n Digite seu endereço completo:"));
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "GABINETE GAMER \n Digite PIX ou CREDITO como forma de pagamento:"));
        break;
         case "5":
-           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "FONTE 500W REAL\n Digite seu endereço completo:"));
+           sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => "FONTE 500W REAL\n Digite PIX ou CREDITO como forma de pagamento:"));
        break;
        default:
         sendMessage("sendMessage", array('chat_id' => $chat_id, "text" => 'OPÇÃO SELECIONADA ERRADA'));
